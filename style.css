@@ -1,0 +1,242 @@
+body {
+  margin: 0;
+  background-image: url("images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Rajdhani", sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  max-width: 1000px;
+  border-top: 10px solid #fff;
+  border-bottom: 10px solid #fff;
+  height: 90%;
+  min-height: 90vh;
+  align-items: flex-start;
+  justify-content: baseline;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.container h1 {
+  font-size: 3rem;
+  display: inline-block;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out;
+}
+.input-area,
+.task-list-container {
+  position: relative;
+  align-self: stretch;
+}
+
+.task-input {
+  transition: padding-top 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+  width: 90%;
+  border: none;
+  border: 1px solid rgb(255, 201, 201);
+}
+.task-input:focus {
+  outline: none;
+  border-bottom: 3px solid rgb(255, 201, 201);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  transition: 0.3s;
+  padding-top: 20px;
+}
+
+.task-input + label > span {
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  color: #8f8f8f;
+  font-size: 14px;
+  top: 6px;
+  left: 10px;
+  -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+.task-input:focus + label > span {
+  top: 0px;
+  color: #333;
+}
+.input-area {
+  position: relative;
+}
+.button-click {
+  border: none;
+  background-color: rgb(255, 201, 201);
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  margin-right: 0.2em;
+}
+.button-memo {
+  background-color: rgb(255, 243, 178);
+  
+}
+.button-calendar {
+  background-color: rgb(189, 236, 255);
+}
+
+.button-click:hover {
+  background-color: rgb(238, 255, 177);
+  transition: 0.5s;
+}
+.button-click:active {
+  background-color: #f3f4f6;
+  box-shadow: -1px 2px 5px rgba(81, 41, 10, 0.15),
+    0px 1px 1px rgba(81, 41, 10, 0.15);
+  transform: translateY(0.125rem);
+}
+
+.task-list-container {
+  border: 1px solid lightgray;
+  margin-top: 0.8em;
+  position: relative;
+  margin-right: -0.1em;
+}
+.tab-type {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+}
+
+.tab-type div {
+  padding: 1em;
+  cursor: pointer;
+}
+
+#tab-underline {
+  background-color: lightpink;
+  height: 4px !important;
+  position: absolute;
+  top: 53px;
+  left: 0px;
+  width: 48px;
+  transition: 0.5s;
+  padding: 0px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  position: relative;
+}
+.task span {
+  padding: 1em;
+}
+.button-box {
+  display: flex;
+}
+
+.button-box button {
+  height: 100%;
+  border: none;
+  width: 3.5em;
+  margin: 0;
+  background-color: white;
+  transition: 0.5s;
+}
+.button-box button :active {
+  position: relative;
+  top: 2px;
+}
+
+.button-box button:first-child:hover {
+  background-color: rgb(87, 252, 114);
+}
+.button-box button:nth-child(2):hover {
+  background-color: rgb(255, 0, 0, 0.3);
+}
+
+.fa-check {
+  color: rgb(231, 255, 144);
+}
+
+.fa-trash {
+  color: red;
+}
+.fa-undo-alt {
+  color: lightslategray;
+}
+#id:hover {
+  background-color: #333;
+}
+#task-board {
+  height: auto;
+}
+.task-done {
+  text-decoration: line-through;
+  background-color: lightgray;
+  transition: 0.5s;
+}
+@keyframes shake {
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    height: 85%;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    height: 95%;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+  }
+
+  .task-input:focus + label > span {
+    display: none;
+  }
+  .tab-type {
+    width: 10px;
+  }
+  .task-input {
+    width: 91%;
+    margin-bottom: 0.5em;
+  }
+  .container h1 {
+    font-size: 1.5rem;
+    animation: shake 2s infinite;
+  }
+  .task-list-container {
+    border: none;
+    margin-top: 0.3em;
+  }
+  .tab-type {
+    border-bottom: 0.5px solid lightgray;
+  }
+  .tab-type div {
+    padding: 0.8em;
+  }
+  .button-box button {
+    width: 2em;
+  }
+  .task-input {
+    border-radius: 10px;
+    border: 0.5px dashed rgb(255, 201, 201);
+  }
+}
